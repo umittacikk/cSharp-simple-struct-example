@@ -1,0 +1,36 @@
+/* Kullanıcının girdiği yemekeğe ve yemek istediği porsiyona göre fiyat veren uygulama */
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        struct kayit
+        {
+            public string yemek_adi;
+            public double porsiyon , birim_fiyati;
+            public double fiyat(double porsiyon , double birim_fiyati)
+            {
+                double fiyat;
+                fiyat = porsiyon * birim_fiyati;
+                return fiyat;
+            }
+        }
+        static void Main(string[] args)
+        {
+            kayit yemek = new kayit();
+            Console.WriteLine("Yemegin adini giriniz:");
+            yemek.yemek_adi = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Kac porsiyon yiyeceksiniz:");
+            yemek.porsiyon = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Birim fiyati nedir(tl)?");
+            yemek.birim_fiyati = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Yediginiz yemek = {0} \nOdeyeceginiz ücret {1} tl", yemek.yemek_adi, yemek.fiyat(yemek.porsiyon , yemek.birim_fiyati));
+            Console.ReadKey();
+        }
+    }
+}
